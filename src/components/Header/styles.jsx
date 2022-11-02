@@ -28,7 +28,7 @@ export const StyledButtonTheme = styled.button`
   background-color: unset;
   border: unset;
   color: ${(props) => props.theme.primaryTextColor};
-  font-size: 20px;
+  font-size: 22px;
   cursor: pointer;
 `
 

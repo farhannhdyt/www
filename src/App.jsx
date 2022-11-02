@@ -12,7 +12,7 @@ import { GlobalStyle } from './styles/global'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 // pages
-import { Works, About, Home } from './pages'
+import { Works, About, Home, NotFound } from './pages'
 
 const App = () => {
   const storedTheme = localStorage.getItem('isDarkMode')
@@ -36,6 +36,7 @@ const App = () => {
             <Route path="/" element={<Home />} />
             <Route path="/works" element={<Works />} />
             <Route path="/about" element={<About />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </Container>
 

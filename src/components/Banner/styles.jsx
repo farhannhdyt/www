@@ -4,14 +4,15 @@ export const StyledBanner = styled.section`
   margin-top: 50px;
 
   h1 {
-    font-size: 40px;
+    font-size: 50px;
     font-weight: 800;
   }
 
   span {
     display: inline-block;
+    margin-top: 5px;
     margin-bottom: 15px;
-    font-size: 20px;
+    font-size: 25px;
     font-weight: 700;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;

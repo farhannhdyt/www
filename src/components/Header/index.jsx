@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Container } from '../Container'
 import { StyledButtonTheme, StyledHeader, StyledHeaderFlex, StyledMenu } from './styles'
-import { IoSunnyOutline, IoMoonOutline } from 'react-icons/io5'
+import { RiSunFill, RiMoonFill } from 'react-icons/ri'
 
 // react-router-dom
 import { NavLink } from 'react-router-dom'
@@ -46,7 +46,7 @@ const Header = ({ toggleTheme, isDarkMode }) => {
           </StyledMenu>
 
           <StyledButtonTheme onClick={() => toggleTheme()}>
-            {isDarkMode ? <IoMoonOutline /> : <IoSunnyOutline />}
+            {isDarkMode ? <RiMoonFill /> : <RiSunFill />}
           </StyledButtonTheme>
         </StyledHeaderFlex>
       </Container>

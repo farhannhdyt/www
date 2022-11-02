@@ -7,7 +7,9 @@ export const darkColors = {
   footerParagraphColor: '#6F6F6F',
   primaryCardBackground: '#0c0c0c',
   primaryGradientColor: '#3b82f6',
-  secondaryGradientColor: '#14b8a6'
+  secondaryGradientColor: '#14b8a6',
+  backgroundHoverColor: '#fff',
+  foregroundHoverColor: '#000'
 }
 
 export const lightColors = {
@@ -18,7 +20,9 @@ export const lightColors = {
   primaryBackgroundColor: '#fff',
   footerParagraphColor: '#6F6F6F',
   primaryGradientColor: '#3b82f6',
-  secondaryGradientColor: '#14b8a6'
+  secondaryGradientColor: '#14b8a6',
+  backgroundHoverColor: '#000',
+  foregroundHoverColor: '#fff'
 }
 
 export const fonts = {

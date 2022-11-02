@@ -29,7 +29,7 @@ export const StyledFlex = styled.div`
   }
 
   a:hover {
-    color: ${(props) => props.theme.primaryLinkColor};
+    color: ${(props) => props.theme.primaryTextColor};
   }
 
   span {

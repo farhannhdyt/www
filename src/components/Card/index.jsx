@@ -1,19 +1,17 @@
 import { IoLogoGithub } from 'react-icons/io5'
 import { StyledCard } from './styles'
+import { Link } from 'react-router-dom'
 
-const Card = () => {
+const Card = ({ title, desc, github }) => {
   return (
     <StyledCard>
-      <h2>Covid-19 Tracker</h2>
+      <h2>{title}</h2>
 
-      <p>
-        covid-19 tracker app contains data that confirmed, recovered, and died in each country
-        caused by a coronavirus.
-      </p>
+      <p>{desc}</p>
 
-      <a href="#">
+      <Link to={github} target="_blank" rel="noopener noreferrer">
         <IoLogoGithub />
-      </a>
+      </Link>
     </StyledCard>
   )
 }
