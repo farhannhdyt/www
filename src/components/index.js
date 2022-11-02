@@ -1,3 +1,6 @@
 export * from './Header'
 export * from './Container'
 export * from './Banner'
+export * from './DotBreak'
+export * from './Card'
+export * from './Footer'

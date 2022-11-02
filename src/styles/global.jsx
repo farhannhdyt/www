@@ -15,10 +15,10 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    line-height: 1.5;
     -webkit-font-smoothing: antialiased;
     background-color: ${(props) => props.theme.primaryBackgroundColor};
-    font-family: ${fonts.serif}
+    font-family: ${fonts.serif};
+    transition: 0.2s;
   }
 
   p, h1, h2, h3, h4, h5, h6 {

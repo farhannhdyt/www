@@ -6,6 +6,12 @@ export const StyledHeader = styled.header`
   position: sticky;
   top: 0;
   backdrop-filter: saturate(180%) blur(5px);
+  transition: 0.2s;
+  border-bottom: 1px solid transparent;
+
+  &.scroll {
+    border-bottom: 1px solid ${(props) => props.theme.primaryBorderColor};
+  }
 
   @media screen and (max-width: 600px) {
     padding: 10px;
@@ -22,7 +28,7 @@ export const StyledButtonTheme = styled.button`
   background-color: unset;
   border: unset;
   color: ${(props) => props.theme.primaryTextColor};
-  font-size: 24px;
+  font-size: 20px;
   cursor: pointer;
 `
 
