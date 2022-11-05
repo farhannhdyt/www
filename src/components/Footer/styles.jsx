@@ -36,4 +36,10 @@ export const StyledFlex = styled.div`
     color: ${(props) => props.theme.secondaryTextColor};
     font-size: 15px;
   }
+
+  @media screen and (max-width: 600px) {
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
+  }
 `

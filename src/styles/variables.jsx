@@ -9,7 +9,8 @@ export const darkColors = {
   primaryGradientColor: '#3b82f6',
   secondaryGradientColor: '#14b8a6',
   backgroundHoverColor: '#fff',
-  foregroundHoverColor: '#000'
+  foregroundHoverColor: '#000',
+  headerBorderBottom: 'hsla(0,0%,100%,.1)'
 }
 
 export const lightColors = {
@@ -22,7 +23,8 @@ export const lightColors = {
   primaryGradientColor: '#3b82f6',
   secondaryGradientColor: '#14b8a6',
   backgroundHoverColor: '#000',
-  foregroundHoverColor: '#fff'
+  foregroundHoverColor: '#fff',
+  headerBorderBottom: 'rgba(0,0,0,.1)'
 }
 
 export const fonts = {

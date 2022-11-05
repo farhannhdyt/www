@@ -45,4 +45,10 @@ export const GlobalStyle = createGlobalStyle`
     background-color: #f81ce5;
     color: #fff;
   }
+
+  @media screen and (max-width: 600px) {
+    p {
+      font-size: 15px;
+    }
+  }
 `

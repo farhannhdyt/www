@@ -5,16 +5,21 @@ export const StyledHeader = styled.header`
   padding-bottom: 20px;
   position: sticky;
   top: 0;
-  backdrop-filter: saturate(180%) blur(5px);
+  backdrop-filter: blur(16px);
   transition: 0.2s;
   border-bottom: 1px solid transparent;
 
   &.scroll {
-    border-bottom: 1px solid ${(props) => props.theme.primaryBorderColor};
+    box-shadow: inset 0 -1px 0 0 ${(props) => props.theme.headerBorderBottom};
   }
 
   @media screen and (max-width: 600px) {
-    padding: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    ul {
+      display: none;
+    }
   }
 `
 

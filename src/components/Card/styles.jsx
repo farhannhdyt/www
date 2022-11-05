@@ -22,4 +22,16 @@ export const StyledCard = styled.div`
     font-size: 25px;
     color: ${(props) => props.theme.primaryTextColor};
   }
+
+  @media screen and (max-width: 600px) {
+    gap: 20px;
+
+    h2 {
+      font-size: 20px;
+    }
+
+    a {
+      font-size: 22px;
+    }
+  }
 `

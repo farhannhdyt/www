@@ -22,4 +22,19 @@ export const StyledBanner = styled.section`
       ${(props) => props.theme.secondaryGradientColor}
     );
   }
+
+  @media screen and (max-width: 600px) {
+    h1 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    span {
+      font-size: 20px;
+    }
+
+    p {
+      font-size: 15px;
+    }
+  }
 `

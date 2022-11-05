@@ -1,6 +1,5 @@
-import { useState } from 'react'
-import { Banner, Card, DotBreak } from '../../components'
-import { StyledFeaturedWorks, StyledGrid } from './styles'
+import { Banner, Card, Grid } from '../../components'
+import { StyledFeaturedWorks } from './styles'
 import { projects } from '../../data/projects'
 
 const Home = () => {
@@ -12,7 +11,7 @@ const Home = () => {
 
       <StyledFeaturedWorks>
         <h2 className="featured-title">Featured Works</h2>
-        <StyledGrid>
+        <Grid>
           {handleFilteredProjects.map((filteredProject) => (
             <Card
               title={filteredProject.title}
@@ -20,7 +19,7 @@ const Home = () => {
               github={filteredProject.github}
             />
           ))}
-        </StyledGrid>
+        </Grid>
       </StyledFeaturedWorks>
     </section>
   )
