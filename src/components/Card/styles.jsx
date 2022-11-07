@@ -6,7 +6,7 @@ export const StyledCard = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 30px;
+  gap: 20px;
   transition: 0.2s;
   border-radius: 4px;
 

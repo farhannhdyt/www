@@ -1,13 +1,13 @@
 import { StyledAbout, StyledAboutDesc } from './styles'
 import {
-  RiHtml5Fill,
-  RiCss3Fill,
-  RiReactjsFill,
-  RiGithubFill,
-  RiGitBranchFill
-} from 'react-icons/ri'
-import { StyledTechFlex } from './styles'
-import { StyledTechItem } from './styles'
+  IoLogoHtml5,
+  IoLogoCss3,
+  IoLogoJavascript,
+  IoLogoReact,
+  IoLogoGithub
+} from 'react-icons/io5'
+import { SiGit, SiStyledcomponents } from 'react-icons/si'
+import { StyledTechFlex, StyledTechItem } from './styles'
 
 const About = () => {
   return (
@@ -34,37 +34,39 @@ const About = () => {
 
         <StyledTechFlex>
           <StyledTechItem>
-            <RiHtml5Fill />
-
-            <span>HTML</span>
+            <IoLogoHtml5 />
+            <span>HTML5</span>
           </StyledTechItem>
           <StyledTechItem>
-            <RiCss3Fill />
-
-            <span>CSS</span>
+            <IoLogoCss3 />
+            <span>CSS3</span>
           </StyledTechItem>
           <StyledTechItem>
-            <RiHtml5Fill />
-
+            <IoLogoJavascript />
             <span>JavaScript</span>
           </StyledTechItem>
           <StyledTechItem>
-            <RiReactjsFill />
-
-            <span>React</span>
+            <IoLogoReact />
+            <span>React.js</span>
           </StyledTechItem>
           <StyledTechItem>
-            <RiGithubFill />
-
+            <IoLogoGithub />
             <span>Github</span>
           </StyledTechItem>
           <StyledTechItem>
-            <RiGitBranchFill />
-
+            <SiGit />
             <span>Git</span>
+          </StyledTechItem>
+          <StyledTechItem>
+            <SiStyledcomponents />
+            <span>Styled Components</span>
           </StyledTechItem>
         </StyledTechFlex>
       </StyledAboutDesc>
+
+      <div>
+        <div></div>
+      </div>
     </StyledAbout>
   )
 }

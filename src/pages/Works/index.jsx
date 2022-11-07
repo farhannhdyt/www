@@ -21,7 +21,7 @@ const Works = () => {
       </Grid>
 
       <span>
-        See all my projects on <a href="#">Github</a>
+        See all my projects on <a href="https://github.com/farhannhdyt?tab=repositories">Github</a>
       </span>
     </StyledWorks>
   )
