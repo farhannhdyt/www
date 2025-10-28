@@ -26,8 +26,9 @@ export default function Home() {
           </h1>
 
           <p className="text-neutral-600 dark:text-neutral-300 font-sans text-sm md:text-base">
-            Front-End Developer and UI/UX Designer passionate about creating
-            modern, responsive websites and intuitive user experiences.
+            A freelance web developer and designer who blends clean code with
+            thoughtful design. I build responsive, fast, and aesthetic digital
+            experiences using Next.js, TypeScript, and TailwindCSS.
           </p>
 
           <div className="flex items-center space-x-6 mt-6">
@@ -128,13 +129,13 @@ export default function Home() {
                   {experience.role}
                 </h3>
 
-                <p className="font-sans text-neutral-600 dark:text-neutral-300">
+                <p className="font-sans text-neutral-600 dark:text-neutral-300 font-normal text-sm lg:text-[15px]">
                   {experience.description}
                 </p>
               </div>
 
               {experience.stacks && (
-                <div className="col-span-12 lg:col-span-3 p-4 lg:p-0 lg:px-2 flex items-center justify-center">
+                <div className="col-span-12 lg:col-span-3 p-4 lg:p-0 lg:px-3 flex items-center justify-center">
                   <div className="flex flex-wrap items-center justify-center gap-1">
                     {experience.stacks.map((stack, index) => (
                       <span
@@ -207,7 +208,7 @@ export default function Home() {
           glow={1}
           transparent={true}
         />
-        <div className="absolute inset-0 flex flex-col items-center justify-center gap-6 z-10 w-full lg:w-[600px] m-auto">
+        <div className="absolute inset-0 flex flex-col items-center justify-center gap-6 z-10 w-full lg:w-[600px] m-auto px-4">
           <div className="flex items-center flex-col gap-4">
             <h1 className="text-neutral-950 dark:text-white tracking-tight text-4xl md:text-6xl text-center text-pretty font-extrabold">
               Let&apos;s Connect
@@ -219,24 +220,39 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="flex flex-col lg:flex-row items-center gap-8">
+          <div className="flex flex-col lg:flex-row items-center gap-4 w-full lg:w-max">
             <Link
               href="https://www.linkedin.com/in/farhannhdyt/"
               target="_blank"
-              className="w-full lg:w-auto hover:shadow-sm font-medium flex items-center justify-center gap-2 dark:border-neutral-200 dark:hover:shadow-sm border-2 border-black bg-white px-4 py-1.5 text-sm uppercase text-black shadow-[1px_1px_rgba(0,0,0),2px_2px_rgba(0,0,0),3px_3px_rgba(0,0,0),4px_4px_rgba(0,0,0),5px_5px_0px_0px_rgba(0,0,0)] transition duration-200 md:px-8"
+              className="w-full lg:w-max hover:shadow-sm font-medium flex items-center justify-center gap-2 bg-cyan-600 px-4 py-1.5 text-sm uppercase text-white shadow-[1px_1px_rgba(0,0,0),2px_2px_rgba(0,0,0),3px_3px_rgba(0,0,0),4px_4px_rgba(0,0,0),5px_5px_0px_0px_rgba(0,0,0)] transition duration-200 md:px-8"
             >
-              LinkedIn <ExternalLink className="w-[18px] h-[18px]" />
+              LinkedIn
             </Link>
             <Link
-              href="mailto:test@mail.com"
-              className="group flex items-center gap-3 dark:text-white text-neutral-950 transition-colors duration-300"
+              href="https://github.com/farhannhdyt"
+              target="_blank"
+              className="w-full lg:w-max hover:shadow-sm font-medium flex items-center justify-center gap-2 bg-neutral-950 px-4 py-1.5 text-sm uppercase text-neutral-50 shadow-[1px_1px_rgba(0,0,0),2px_2px_rgba(0,0,0),3px_3px_rgba(0,0,0),4px_4px_rgba(0,0,0),5px_5px_0px_0px_rgba(0,0,0)] transition duration-200 md:px-8"
             >
-              <span className="text-base sm:text-lg font-sans font-medium">
-                contact.farhannhdyt@gmail.com
-              </span>
-              <MoveRight className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300" />
+              Github
+            </Link>
+            <Link
+              href="https://www.behance.net/farhannhdyt"
+              target="_blank"
+              className="w-full lg:w-max hover:shadow-sm font-medium flex items-center justify-center gap-2 bg-blue-600 px-4 py-1.5 text-sm uppercase text-white shadow-[1px_1px_rgba(0,0,0),2px_2px_rgba(0,0,0),3px_3px_rgba(0,0,0),4px_4px_rgba(0,0,0),5px_5px_0px_0px_rgba(0,0,0)] transition duration-200 md:px-8"
+            >
+              Behance
             </Link>
           </div>
+
+          <Link
+            href="mailto:test@mail.com"
+            className="group flex items-center gap-3 dark:text-white text-neutral-950 transition-colors duration-300"
+          >
+            <span className="text-base sm:text-lg font-sans font-medium">
+              contact.farhannhdyt@gmail.com
+            </span>
+            <MoveRight className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300" />
+          </Link>
         </div>
       </section>
     </>
