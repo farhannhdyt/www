@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased h-[2000px]`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased dark:selection:bg-neutral-50 dark:selection:text-neutral-950 selection:bg-neutral-950 selection:text-neutral-50`}
       >
         <ThemeProvider
           attribute="class"
@@ -37,10 +37,8 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <MainNavbar />
-          <main className="h-min mx-auto overflow-x-hidden">
-            {/* Main navbar */}
-            {children}
-          </main>
+
+          <main className="h-min mx-auto overflow-x-hidden">{children}</main>
         </ThemeProvider>
       </body>
     </html>

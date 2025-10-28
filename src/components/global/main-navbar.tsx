@@ -57,7 +57,7 @@ export function MainNavbar(): React.ReactElement {
           <ul className="flex items-center w-max shrink-0 h-full">
             {navLinks.map((link: NavLink, index) => (
               <li
-                className="h-full hidden md:flex items-center border-b border-b-transparent hover:border-b-neutral-950 dark:hover:border-b-white border-r"
+                className="h-full hidden md:flex items-center border-b border-b-transparent hover:border-b-neutral-950 dark:hover:border-b-white border-r transition duration-200"
                 key={index}
               >
                 <Link
