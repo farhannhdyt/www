@@ -1,7 +1,168 @@
-export function MainNavbar() {
+"use client";
+
+import type React from "react";
+
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Menu, Moon, Sun, X } from "lucide-react";
+import { useTheme } from "next-themes";
+
+interface NavLink {
+  id: string;
+  label: string;
+}
+
+const navLinks: NavLink[] = [
+  {
+    id: "hero",
+    label: "About"
+  },
+  {
+    id: "experience",
+    label: "Experience"
+  },
+  {
+    id: "works",
+    label: "Works"
+  },
+  {
+    id: "contact",
+    label: "Contact"
+  }
+];
+
+export function MainNavbar(): React.ReactElement {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const { theme, setTheme } = useTheme();
+  const [activeSection, setActiveSection] = useState<string>("about");
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = navLinks.map(link => ({
+        id: link.id,
+        element: document.getElementById(link.id)
+      }));
+
+      let currentSection = "about";
+
+      for (const section of sections) {
+        if (section.element) {
+          const rect = section.element.getBoundingClientRect();
+
+          if (rect.top <= 100) {
+            currentSection = section.id;
+          }
+        }
+      }
+
+      setActiveSection(currentSection);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const handleNavClick = (id: string) => {
+    const element = document.getElementById(id);
+
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+      setActiveSection(id);
+      setIsOpen(false);
+    }
+  };
+
+  // Handle click mobile responsive
+  // const handleClick = () => {
+  //   setIsOpen(false);
+  // };
+
   return (
-    <nav>
-      <div></div>
-    </nav>
+    <header className="sticky top-0 z-30 max-w-full w-[1104px] mx-auto bg-background backdrop-blur-md">
+      <div className="flex justify-between border">
+        {/* Logo */}
+        <Link
+          href="/"
+          className="md:px-5 px-2.5 text-foreground md:py-3 py-2 md:col-span-2 shrink-0 transition-colors md:w-[268px] lg:w-[286px] font-mono text-lg flex items-center border-r md:border-r-0"
+        >
+          farhannhdyt.
+        </Link>
+
+        {/* Nav menu */}
+        <nav>
+          <ul className="flex items-center w-max shrink-0 h-full">
+            {navLinks.map((link: NavLink, index) => (
+              <li
+                className={`h-full hidden md:flex border-r items-center border-b transition-colors ${
+                  activeSection === link.id
+                    ? "border-b-primary"
+                    : "border-b-transparent hover:border-b-neutral-950 dark:hover:border-b-white"
+                }`}
+                key={index}
+              >
+                <button
+                  onClick={() => handleNavClick(link.id)}
+                  className="px-6 font-sans text-sm font-medium"
+                >
+                  {link.label}
+                </button>
+              </li>
+            ))}
+
+            <li className="h-full flex items-center">
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+                className="dark:hover:bg-transparent hover:bg-transparent px-8"
+              >
+                {theme === "light" ? (
+                  <Moon className="w-6 h-6 text-foreground" />
+                ) : (
+                  <Sun className="w-6 h-6 text-foreground" />
+                )}
+              </Button>
+            </li>
+            <li className="h-full md:hidden flex items-center">
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => setIsOpen(!isOpen)}
+                className="dark:hover:bg-transparent hover:bg-transparent px-6"
+              >
+                {isOpen ? (
+                  <X className="w-6 h-6 text-foreground" />
+                ) : (
+                  <Menu className="w-6 h-6 text-foreground" />
+                )}
+              </Button>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      {/* Mobile menu navigation */}
+      <div
+        className={`fixed left-0 right-0 bg-background border-b dark:border-b-neutral-800 border-b-neutral-200 transition-all duration-300 ease-in-out overflow-hidden ${
+          isOpen
+            ? "max-h-screen opacity-100"
+            : "max-h-0 opacity-0 pointer-events-none"
+        }`}
+      >
+        <div className="flex flex-col divide-y">
+          {navLinks.map((link: NavLink, index) => (
+            <button
+              onClick={() => handleNavClick(link.id)}
+              key={index}
+              className="py-3 px-2.5 text-left"
+            >
+              {link.label}
+            </button>
+          ))}
+        </div>
+      </div>
+    </header>
   );
 }
