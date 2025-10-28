@@ -7,13 +7,16 @@ import { truncateString } from "@/lib/utils";
 import { experiences } from "@/content/experience";
 import { Separator } from "@/components/global";
 import clsx from "clsx";
-import { Ripple } from "@/components/animations";
+import Prism from "@/components/animations/prism";
 
 export default function Home() {
   return (
     <>
       {/* Hero Section */}
-      <section className="border-l border-r w-full lg:w-[1104px] mx-auto px-6 py-8 grid lg:grid-cols-5 gap-12 items-center">
+      <section
+        className="border-l border-r w-full lg:w-[1104px] mx-auto px-6 py-8 grid lg:grid-cols-5 gap-12 items-center"
+        id="hero"
+      >
         <div className="lg:col-span-3">
           <p className="text-sm font-mono text-neutral-600 dark:text-neutral-300">
             PORTFOLIO / 2025
@@ -28,12 +31,12 @@ export default function Home() {
           </p>
 
           <div className="flex items-center space-x-6 mt-6">
-            <Link
+            {/* <Link
               href="#"
               className="hover:shadow-sm dark:border-neutral-200 dark:hover:shadow-sm border-2 border-black bg-white px-4 py-1.5 text-sm uppercase text-black shadow-[1px_1px_rgba(0,0,0),2px_2px_rgba(0,0,0),3px_3px_rgba(0,0,0),4px_4px_rgba(0,0,0),5px_5px_0px_0px_rgba(0,0,0)] transition duration-200 md:px-8"
             >
               Read Resumes
-            </Link>
+            </Link> */}
 
             <div className="flex items-center gap-2 font-sans text-sm">
               <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
@@ -86,7 +89,10 @@ export default function Home() {
 
       <Separator />
 
-      <section className="border-l border-r w-full lg:w-[1104px] mx-auto px-6 py-8">
+      <section
+        className="border-l border-r w-full lg:w-[1104px] mx-auto px-6 py-8"
+        id="experience"
+      >
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-neutral-800 dark:text-neutral-100 tracking-tight text-2xl md:text-3xl text-pretty font-medium">
             The Experience
@@ -115,7 +121,7 @@ export default function Home() {
                   "p-4 col-span-12"
                 )}
               >
-                <p className="font-sans text-neutral-600 dark:text-neutral-300 mb-2">
+                <p className="font-sans text-neutral-600 dark:text-neutral-300 mb-2 text-sm">
                   {experience.company}
                 </p>
                 <h3 className="text-xl font-semibold font-sans text-neutral-800 dark:text-neutral-100 mb-4">
@@ -148,7 +154,10 @@ export default function Home() {
 
       <Separator />
 
-      <section className="border-l border-r w-full lg:w-[1104px] mx-auto px-6 py-8">
+      <section
+        className="border-l border-r w-full lg:w-[1104px] mx-auto px-6 py-8"
+        id="works"
+      >
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-neutral-800 dark:text-neutral-100 tracking-tight text-2xl md:text-3xl text-pretty font-medium">
             Selected Works
@@ -182,15 +191,29 @@ export default function Home() {
 
       <Separator />
 
-      <section className="border-l border-r w-full lg:w-[1104px] lg:h-[600px] mx-auto relative overflow-hidden">
-        <Ripple className="opacity-80" />
-        <div className="absolute inset-0 flex flex-col items-center justify-center gap-6 z-10 px-4 w-[600px] mx-auto">
+      <section
+        className="border-l border-r w-full h-max lg:w-[1104px] lg:h-screen mx-auto relative overflow-hidden"
+        id="contact"
+      >
+        <Prism
+          animationType="3drotate"
+          timeScale={0.5}
+          height={3.5}
+          baseWidth={5.5}
+          scale={3.6}
+          hueShift={0}
+          colorFrequency={1}
+          noise={0.5}
+          glow={1}
+          transparent={true}
+        />
+        <div className="absolute inset-0 flex flex-col items-center justify-center gap-6 z-10 w-[600px] m-auto">
           <div className="flex items-center flex-col gap-4">
-            <h1 className="text-neutral-800 dark:text-neutral-100 tracking-tight text-2xl md:text-6xl text-center text-pretty font-medium">
+            <h1 className="text-neutral-950 dark:text-white tracking-tight text-2xl md:text-6xl text-center text-pretty font-extrabold">
               Let&apos;s Connect
             </h1>
 
-            <p className="text-neutral-600 dark:text-neutral-300 font-sans text-sm lg:text-xl text-center">
+            <p className="text-neutral-950 dark:text-neutral-50 font-sans text-sm lg:text-xl text-center">
               Always interested in new opportunities, collaborations, and
               conversations about technology and design.
             </p>
@@ -206,7 +229,7 @@ export default function Home() {
             </Link>
             <Link
               href="mailto:test@mail.com"
-              className="group flex items-center gap-3 text-foreground hover:text-muted-foreground transition-colors duration-300"
+              className="group flex items-center gap-3 dark:text-white text-neutral-950 transition-colors duration-300"
             >
               <span className="text-base sm:text-lg font-sans font-medium">
                 contact.farhannhdyt@gmail.com

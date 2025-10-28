@@ -3,43 +3,81 @@
 import type React from "react";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, Moon, Sun, X } from "lucide-react";
 import { useTheme } from "next-themes";
 
 interface NavLink {
+  id: string;
   label: string;
-  href: string;
 }
 
 const navLinks: NavLink[] = [
   {
-    label: "About",
-    href: "/about"
+    id: "hero",
+    label: "About"
   },
   {
-    label: "Experience",
-    href: "/experience"
+    id: "experience",
+    label: "Experience"
   },
   {
-    label: "Works",
-    href: "/works"
+    id: "works",
+    label: "Works"
   },
   {
-    label: "Contact",
-    href: "/contact"
+    id: "contact",
+    label: "Contact"
   }
 ];
 
 export function MainNavbar(): React.ReactElement {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const { theme, setTheme } = useTheme();
+  const [activeSection, setActiveSection] = useState<string>("about");
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = navLinks.map(link => ({
+        id: link.id,
+        element: document.getElementById(link.id)
+      }));
+
+      let currentSection = "about";
+
+      for (const section of sections) {
+        if (section.element) {
+          const rect = section.element.getBoundingClientRect();
+
+          if (rect.top <= 100) {
+            currentSection = section.id;
+          }
+        }
+      }
+
+      setActiveSection(currentSection);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const handleNavClick = (id: string) => {
+    const element = document.getElementById(id);
+
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+      setActiveSection(id);
+      setIsOpen(false);
+    }
+  };
 
   // Handle click mobile responsive
-  const handleClick = () => {
-    setIsOpen(false);
-  };
+  // const handleClick = () => {
+  //   setIsOpen(false);
+  // };
 
   return (
     <header className="sticky top-0 z-30 max-w-full w-[1104px] mx-auto bg-background backdrop-blur-md">
@@ -57,15 +95,19 @@ export function MainNavbar(): React.ReactElement {
           <ul className="flex items-center w-max shrink-0 h-full">
             {navLinks.map((link: NavLink, index) => (
               <li
-                className="h-full hidden md:flex items-center border-b border-b-transparent hover:border-b-neutral-950 dark:hover:border-b-white border-r transition duration-200"
+                className={`h-full hidden md:flex border-r items-center border-b transition-colors ${
+                  activeSection === link.id
+                    ? "border-b-primary"
+                    : "border-b-transparent hover:border-b-neutral-950 dark:hover:border-b-white"
+                }`}
                 key={index}
               >
-                <Link
-                  href={link.href}
-                  className="px-6 font-sans text-base font-medium"
+                <button
+                  onClick={() => handleNavClick(link.id)}
+                  className="px-6 font-sans text-sm font-medium"
                 >
                   {link.label}
-                </Link>
+                </button>
               </li>
             ))}
 
@@ -74,7 +116,7 @@ export function MainNavbar(): React.ReactElement {
                 variant="ghost"
                 size="icon"
                 onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-                className="dark:hover:bg-transparent hover:bg-transparent px-6"
+                className="dark:hover:bg-transparent hover:bg-transparent px-8"
               >
                 {theme === "light" ? (
                   <Moon className="w-6 h-6 text-foreground" />
@@ -111,14 +153,13 @@ export function MainNavbar(): React.ReactElement {
       >
         <div className="flex flex-col divide-y">
           {navLinks.map((link: NavLink, index) => (
-            <Link
-              href={link.href}
+            <button
+              onClick={() => handleNavClick(link.id)}
               key={index}
-              className="py-3 px-2.5"
-              onClick={handleClick}
+              className="py-3 px-2.5 text-left"
             >
               {link.label}
-            </Link>
+            </button>
           ))}
         </div>
       </div>
