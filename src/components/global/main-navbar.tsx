@@ -36,6 +36,11 @@ export function MainNavbar(): React.ReactElement {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const { theme, setTheme } = useTheme();
 
+  // Handle click mobile responsive
+  const handleClick = () => {
+    setIsOpen(false);
+  };
+
   return (
     <header className="sticky top-0 z-30 max-w-full w-[1104px] mx-auto bg-background backdrop-blur-md">
       <div className="flex justify-between border">
@@ -97,17 +102,26 @@ export function MainNavbar(): React.ReactElement {
       </div>
 
       {/* Mobile menu navigation */}
-      {isOpen && (
-        <div className="fixed w-full bg-background border-b dark:border-b-neutral-800 border-b-neutral-200">
-          <div className="flex flex-col divide-y">
-            {navLinks.map((link: NavLink, index) => (
-              <Link href={link.href} key={index} className="py-3 px-2.5">
-                {link.label}
-              </Link>
-            ))}
-          </div>
+      <div
+        className={`fixed left-0 right-0 bg-background border-b dark:border-b-neutral-800 border-b-neutral-200 transition-all duration-300 ease-in-out overflow-hidden ${
+          isOpen
+            ? "max-h-screen opacity-100"
+            : "max-h-0 opacity-0 pointer-events-none"
+        }`}
+      >
+        <div className="flex flex-col divide-y">
+          {navLinks.map((link: NavLink, index) => (
+            <Link
+              href={link.href}
+              key={index}
+              className="py-3 px-2.5"
+              onClick={handleClick}
+            >
+              {link.label}
+            </Link>
+          ))}
         </div>
-      )}
+      </div>
     </header>
   );
 }
