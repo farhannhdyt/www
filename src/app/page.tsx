@@ -192,7 +192,7 @@ export default function Home() {
       <Separator />
 
       <section
-        className="border-l border-r w-full h-max lg:w-[1104px] lg:h-screen mx-auto relative overflow-hidden"
+        className="border-l border-r w-full h-screen lg:w-[1104px] lg:h-screen mx-auto relative overflow-hidden"
         id="contact"
       >
         <Prism
@@ -207,23 +207,23 @@ export default function Home() {
           glow={1}
           transparent={true}
         />
-        <div className="absolute inset-0 flex flex-col items-center justify-center gap-6 z-10 w-[600px] m-auto">
+        <div className="absolute inset-0 flex flex-col items-center justify-center gap-6 z-10 w-full lg:w-[600px] m-auto">
           <div className="flex items-center flex-col gap-4">
-            <h1 className="text-neutral-950 dark:text-white tracking-tight text-2xl md:text-6xl text-center text-pretty font-extrabold">
+            <h1 className="text-neutral-950 dark:text-white tracking-tight text-4xl md:text-6xl text-center text-pretty font-extrabold">
               Let&apos;s Connect
             </h1>
 
-            <p className="text-neutral-950 dark:text-neutral-50 font-sans text-sm lg:text-xl text-center">
+            <p className="text-neutral-950 dark:text-neutral-50 font-sans text-base lg:text-xl text-center">
               Always interested in new opportunities, collaborations, and
               conversations about technology and design.
             </p>
           </div>
 
-          <div className="flex items-center gap-8">
+          <div className="flex flex-col lg:flex-row items-center gap-8">
             <Link
               href="https://www.linkedin.com/in/farhannhdyt/"
               target="_blank"
-              className="hover:shadow-sm font-medium flex items-center gap-2 dark:border-neutral-200 dark:hover:shadow-sm border-2 border-black bg-white px-4 py-1.5 text-sm uppercase text-black shadow-[1px_1px_rgba(0,0,0),2px_2px_rgba(0,0,0),3px_3px_rgba(0,0,0),4px_4px_rgba(0,0,0),5px_5px_0px_0px_rgba(0,0,0)] transition duration-200 md:px-8"
+              className="w-full lg:w-auto hover:shadow-sm font-medium flex items-center justify-center gap-2 dark:border-neutral-200 dark:hover:shadow-sm border-2 border-black bg-white px-4 py-1.5 text-sm uppercase text-black shadow-[1px_1px_rgba(0,0,0),2px_2px_rgba(0,0,0),3px_3px_rgba(0,0,0),4px_4px_rgba(0,0,0),5px_5px_0px_0px_rgba(0,0,0)] transition duration-200 md:px-8"
             >
               LinkedIn <ExternalLink className="w-[18px] h-[18px]" />
             </Link>
